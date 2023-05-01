@@ -2,9 +2,8 @@ import qrcode
 from PIL import Image
 from funcoes import LimparTela, historico, exibir_forca
 
-fim = False
 LimparTela()
-while fim==False:
+while True
     letrasCertas=[]
     letrasErradas=[]
     vencedor=()
