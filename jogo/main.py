@@ -3,7 +3,7 @@ from PIL import Image
 from funcoes import LimparTela, historico, exibir_forca
 
 LimparTela()
-while True
+while True:
     letrasCertas=[]
     letrasErradas=[]
     vencedor=()
