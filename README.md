@@ -5,3 +5,5 @@
 Kauê Siqueira RA:1129646
 
 Vinicius Casturino RA:1135161
+
+## Necessário instalação de bibliotecas QRCODE e PILLOW
