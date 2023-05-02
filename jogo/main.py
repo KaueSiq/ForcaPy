@@ -7,7 +7,7 @@ while True:
     letrasCertas=[]
     letrasErradas=[]
     vencedor=()
-    print("BEM VINDO AO JOGO DA MORT--FORCA")
+    print("##BEM VINDO AO JOGO DA FORCA##")
     while True:
         desafiante = input("Insira o Nome do Desafiante:")
         competidor = input("Insira o Nome do Competidor:")
@@ -15,7 +15,7 @@ while True:
             break
         else:
             LimparTela()
-            print("Entrada invalida!")
+            print("Entrada inválida!")
 
     LimparTela()
     while True:
@@ -24,7 +24,7 @@ while True:
             break
         else:
             LimparTela()
-            print("Entrada invalida!")
+            print("Entrada inválida!")
     dica1 = input("Insira a dica 1:")
     dica2 = input("Insira a dica 2:")
     dica3 = input("Insira a dica 3:")
@@ -34,39 +34,40 @@ while True:
 
     while True:
         print()
-        exibir_forca(chance)
-        for letra in palavraChave:
-            if letra in letrasCertas:
-                print(letra, end=' ')
-            else:
-                print("_", end=" ")
-
+        exibir_forca(chance,palavraChave,letrasCertas)
         print()
-
-    
-        print("deseja JOGAR ou pedir uma DICA?")
+        print("Deseja JOGAR ou pedir uma DICA?")
         opcao = input()
         if opcao == "dica":
             LimparTela()
             try:
-                print("A dica é: " ,(dicas[0]))
+                print("A dica é:" ,(dicas[0]),"." )
                 del dicas[0]
             except:
                 print("Sem mais dicas!")
-            print("Você possue mais ", len(dicas), "dicas")
+            print("Você possue mais ", len(dicas), "dicas.")
         elif opcao == "jogar":
             LimparTela()
-            print("Que comece o jogo!")
+            print("Boa sorte!")
         else :
             LimparTela()
-            print("ESCOLHE LOGO VACILÃO")
+            print("Opção inválida, escolha novamente.")
 
-        print("A Quantidade de Letras é:",  len(palavraChave))
+        exibir_forca(chance,palavraChave,letrasCertas)
+        print()
+        print("A Palavra tem",len(palavraChave), "letras.")
 
         if len(letrasErradas) > 0:
             print("Letras erradas:", " ".join(letrasErradas)) 
-
-        letraTentativa = input("Digite uma letra: ").upper()
+        while True:
+            letraTentativa = input("Digite uma letra: ").upper()
+            LimparTela()
+            print()
+            exibir_forca(chance,palavraChave,letrasCertas)
+            print()
+            print("A Palavra tem",len(palavraChave), "letras.")
+            if letraTentativa.isalpha():
+                break
         LimparTela()
         if letraTentativa in letrasErradas or letraTentativa in letrasCertas:
             print("Você já tentou essa letra, tente outra agora.")
@@ -80,13 +81,13 @@ while True:
                 vencedor = competidor
                 break
             else:
-                print("Agora tente outra letra")
+                print("Agora tente outra letra.")
         else:
-            print("Puxa, a letra ", letraTentativa.upper(), "não está na palavra")
+            print("Puxa, a letra ", letraTentativa.upper(), "não está na palavra.")
             letrasErradas.append(letraTentativa)
             chance -= 1
             if chance == 0:
-                print("Você perdeu! A palavra era", palavraChave)
+                print("Você perdeu! A palavra era", palavraChave,".")
                 vencedor = desafiante
                 exibir_forca(chance)
                 break
@@ -96,11 +97,11 @@ while True:
 
     historico(desafiante,competidor,palavraChave,vencedor)
     print("Salvamos seu histórico com sucesso.")
-    input("Pressione enter para continuar")
+    input("Pressione enter para continuar...")
     LimparTela()
     while True:
-        print("Escolha com sabedoria")
-        loop=input("JOGAR Para recomeçar o jogo" "\n" "HISTORICO Para visualizar historico de partida" "\n" "SAIR Para sair do jogo" "\n")
+        print("Escolha com sabedoria.")
+        loop=input("'JOGAR' Para recomeçar o jogo" "\n" "'HISTORICO' Para visualizar historico de partida" "\n" "'SAIR' Para sair do jogo" "\n")
         if loop == "historico":
             try:
                 LimparTela()
@@ -108,9 +109,10 @@ while True:
                 dados = arquivo.read()
                 print("Aqui vai o histórico de jogos:")
                 print(dados)
-                input("Pressione Enter para continuar")
+                input("Pressione Enter para continuar...")
                 LimparTela()
             except:
+                LimparTela()
                 print("Ops, o histórico está indisponivel.")
         elif loop == "jogar":
             palavraChave=()
@@ -131,7 +133,7 @@ while True:
             img.show()
             exit()
         else:
-            print("Por favor escolha uma opção válida")
+            print("Por favor escolha uma opção válida.")
 
 
 

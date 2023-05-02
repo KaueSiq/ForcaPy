@@ -13,7 +13,7 @@ def historico(desafiante, competidor, palavraChave, vencedor):
         arquivo.write("\n")
     arquivo.close
 
-def exibir_forca(chance):
+def exibir_forca(chance, palavraChave,letrasCertas):
     forca = ["   _______",
              "  |/      |",
              "  |      " + (" O" if chance < 5 else ""),
@@ -23,3 +23,9 @@ def exibir_forca(chance):
              "__|__"]
     for i in forca:
         print(i)
+    for letra in palavraChave:
+        if letra in letrasCertas:
+                print(letra, end=' ')
+        else:
+            print("_", end=" ")
+print()
