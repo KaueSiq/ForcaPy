@@ -16,7 +16,6 @@ while True:
         else:
             LimparTela()
             print("Entrada inválida!")
-
     LimparTela()
     while True:
         palavraChave = input("Insira a Palavra chave:").upper()
@@ -31,7 +30,6 @@ while True:
     chance = 5
     dicas=[dica1, dica2, dica3]
     LimparTela()
-
     while True:
         print()
         exibir_forca(chance,palavraChave,letrasCertas)
@@ -52,7 +50,6 @@ while True:
         else :
             LimparTela()
             print("Opção inválida, escolha novamente.")
-
         exibir_forca(chance,palavraChave,letrasCertas)
         print()
         print("A Palavra tem",len(palavraChave), "letras.")
@@ -93,8 +90,6 @@ while True:
                 break
             else:
                 print("Você só tem mais", chance, "chances.")
-
-
     historico(desafiante,competidor,palavraChave,vencedor)
     print("Salvamos seu histórico com sucesso.")
     input("Pressione enter para continuar...")
@@ -134,6 +129,3 @@ while True:
             exit()
         else:
             print("Por favor escolha uma opção válida.")
-
-
-
